@@ -1,35 +1,40 @@
 <template>
   <div>
-      {{name}}
-      <RadioItem v-for="(item, index) in radios" :key="index" @select-radio="selectRadio($event)" :disabled="disabled"  :value="item" :name="name"  />
-      Selected: {{selected}}
-      <br>
-      <br>
+    {{ name }}
+    <RadioItem
+      v-for="(item, index) in radios"
+      :key="index"
+      @select-radio="selectRadio($event)"
+      :disabled="disabled"
+      :value="item"
+      :name="name"
+    />
+    Selected: {{ selected }}
+    <br />
+    <br />
   </div>
 </template>
-
 <script>
-import RadioItem from '@/components/RadioItem.vue'
+import RadioItem from "@/components/RadioItem.vue";
 export default {
-  name: 'RadioGroup',
+  name: "RadioGroup",
   props: {
-    disabled: Number,
+    disabled: Boolean,
     name: String,
-    radios: Array
+    radios: Array,
   },
   components: {
-    RadioItem
+    RadioItem,
   },
   data() {
     return {
-      selected: ""
-    }
+      selected: "",
+    };
   },
   methods: {
     selectRadio(value) {
       this.selected = value;
-       
-    }
-  }
-}
+    },
+  },
+};
 </script>

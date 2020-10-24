@@ -1,19 +1,22 @@
 <template>
-<div>
-  <input type="radio" :value="value" :name="name" @change="$emit('select-radio', value)"  :disabled="disabled === 1"  />
-  <label for="">{{value}}</label>
-</div>
-
+  <div>
+    <input
+      type="radio"
+      :value="value"
+      :name="name"
+      @change="$emit('select-radio', value)"
+      :disabled="disabled"
+    />
+    <label for="">{{ value }}</label>
+  </div>
 </template>
 <script>
 export default {
-  name: 'RadioItem',
+  name: "RadioItem",
   props: {
     value: String,
     name: String,
-    disabled: Number
-  }
-
-
-}
+    disabled: Boolean,
+  },
+};
 </script>
